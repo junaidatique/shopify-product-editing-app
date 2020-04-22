@@ -11,7 +11,7 @@ import {
   TextStyle,
 
 } from '@shopify/polaris';
-
+import Cookies from 'js-cookie';
 class AnnotatedLayout extends React.Component {
   state = {
     discount: '10%',
@@ -23,7 +23,8 @@ class AnnotatedLayout extends React.Component {
     const { discount, enabled } = this.state;
     const contentStatus = enabled ? 'Disable' : 'Enable';
     const textStatus = enabled ? 'enabled' : 'disabled';
-
+    const shopURL = Cookies.get("shopOrigin");
+    console.log("AnnotatedLayout -> render -> shopURL", shopURL)
     return (
       <Page>
         <Layout>
